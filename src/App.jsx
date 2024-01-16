@@ -1,15 +1,21 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import ContactList from './components/ContactList'
+import SelectedContact from './components/SelectedContact'
 
 function App() {
-
+  const [selectedContactId, setSelectedContactId] = useState(null);
+//display cotact list
+//if contact selected, display their information
   return (
     <>
-      hi
+      {selectedContactId ? (
+        <SelectedContact setSelectedContactId = {setSelectedContactId} selectedContactId = {selectedContactId}/>
+      ) : (
+      <ContactList setSelectedContactId = {setSelectedContactId} selectedContactId = {selectedContactId}/>
+      )}
     </>
-  )
+  );
 }
 
 export default App
